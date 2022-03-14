@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hook</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shorthandcss@1.1.1/dist/shorthand.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:200,300,400,500,600,700,800,900&display=swap" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+</head>
+
+<body class="bg-black muli">
+    <nav class="w-100pc flex flex-column md-flex-row md-px-10 py-5 bg-black">
+        <div class="flex justify-between">
+            <a href="#" class="flex items-center p-2 mr-4 no-underline">
+                <img class="max-h-l2 w-auto" src="assets/images/logo2.png" />
+            </a>
+            <a data-toggle="toggle-nav" data-target="#nav-items" href="#"
+                class="flex items-center ml-auto md-hidden indigo-lighter opacity-50 hover-opacity-100 ease-300 p-1 m-3">
+                <i data-feather="menu"></i>
+            </a>
+        </div>
+        <div id="nav-items" class="hidden flex sm-w-100pc flex-column md-flex md-flex-row md-justify-end items-center">
+            <a href="#home" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Home</a>
+            <a href="#features" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Settings</a>
+            <a href="#pricing" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Account</a>
+            <a href="#blog" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Logout</a>
+            <a href="#" class="button bg-white black fw-600 no-underline mx-5">Upload</a>
+        </div>
+    </nav>
+
+    <!-- pricing -->
+    <section id="pricing">
+        <div class="p-10 flex flex-wrap">
+            <div class="w-100pc md-h-25pc md-w-25pc">
+                <div class="m-3 p-5 br-8 bg-indigo-lightest-10 overflow-hidden">
+                    <div class="p-3">
+                        <h3 class="indigo">test.jpg</h3>
+                    </div>
+                    <div class="p-3 indigo-lightest fw-400 fs-s1 lh-5">
+
+                       <img src="https://media.discordapp.net/attachments/873059225977360395/952327246016827432/unknown.png" alt="Italian Trulli">
+
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">24x7 support</span></div>
+                        <div>
+                            <i class="h-3" stroke-width="4" data-feather="x"></i>
+                            <span class="opacity-50">third party integration</span></div>
+                    </div>
+                    <div class="p-3">
+                        <button class="button full bg-black white  hover-opacity-100 hover-scale-up-1 ease-300">SIGN
+                            UP</button>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100pc md-h-25pc md-w-25pc">
+                <div class="m-3 p-5 br-8 bg-indigo-lightest-10 overflow-hidden">
+                    <div class="p-3">
+                        <h3 class="indigo">test.jpg</h3>
+                    </div>
+                    <div class="p-3 indigo-lightest fw-400 fs-s1 lh-5">
+
+                       <img src="https://media.discordapp.net/attachments/873059225977360395/952321489716269066/unknown.png" alt="Italian Trulli">
+
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">24x7 support</span></div>
+                        <div>
+                            <i class="h-3" stroke-width="4" data-feather="x"></i>
+                            <span class="opacity-50">third party integration</span></div>
+                    </div>
+                    <div class="p-3">
+                        <button class="button full bg-black white  hover-opacity-100 hover-scale-up-1 ease-300">SIGN
+                            UP</button>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100pc h-100pc md-w-25pc">
+                <div class="m-3 p-5 br-8 bg-indigo-lightest-10 overflow-hidden">
+                    <div class="p-3">
+                        <h3 class="indigo">test.jpg</h3>
+                    </div>
+                    <div class="p-3 indigo-lightest fw-400 fs-s1 lh-5">
+
+                       <img src="https://media.discordapp.net/attachments/850118899831013407/952723140251889665/unknown.png" alt="Italian Trulli">
+
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">24x7 support</span></div>
+                        <div>
+                            <i class="h-3" stroke-width="4" data-feather="x"></i>
+                            <span class="opacity-50">third party integration</span></div>
+                    </div>
+                    <div class="p-3">
+                        <button class="button full bg-black white  hover-opacity-100 hover-scale-up-1 ease-300">SIGN
+                            UP</button>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100pc h-100pc md-w-25pc">
+                <div class="m-3 p-5 br-8 bg-indigo-lightest-10 overflow-hidden">
+                    <div class="p-3">
+                        <h3 class="indigo">test.jpg</h3>
+                    </div>
+                    <div class="p-3 indigo-lightest fw-400 fs-s1 lh-5">
+
+                       <img src="https://media.discordapp.net/attachments/850118899831013407/952723367260209272/unknown.png?width=250&height=646" alt="Italian Trulli">
+
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">24x7 support</span></div>
+                        <div>
+                            <i class="h-3" stroke-width="4" data-feather="x"></i>
+                            <span class="opacity-50">third party integration</span></div>
+                    </div>
+                    <div class="p-3">
+                        <button class="button full bg-black white  hover-opacity-100 hover-scale-up-1 ease-300">SIGN
+                            UP</button>
+                    </div>
+                </div>
+            </div>
+            <div class="w-50pc  md-h-50pc md-w-50pc">
+                <div class="m-3 p-5 br-8 bg-white overflow-hidden">
+                    <div class="p-3">
+                        <h3 class="indigo">Pro</h3>
+                        <div class="black flex items-center">$<span class="fs-l5 lh-1">99</span>/mo</div>
+                    </div>
+                    <div class="p-3 black fw-400 fs-s1 lh-5">
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50"> 5 user</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">10,000 visitors/month</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">3 website</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">24x7 support</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">third party integration</span></div>
+                    </div>
+                    <div class="p-3">
+                        <button class="button full bg-indigo white hover-opacity-100 hover-scale-up-1 ease-300">SIGN
+                            UP</button>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100pc md-w-25pc">
+                <div class="m-3 p-5 br-8 bg-white overflow-hidden">
+                    <div class="p-3">
+                        <h3 class="indigo">Pro</h3>
+                        <div class="black flex items-center">$<span class="fs-l5 lh-1">99</span>/mo</div>
+                    </div>
+                    <div class="p-3 black fw-400 fs-s1 lh-5">
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50"> 5 user</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">10,000 visitors/month</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">3 website</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">24x7 support</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">third party integration</span></div>
+                    </div>
+                    <div class="p-3">
+                        <button class="button full bg-indigo white hover-opacity-100 hover-scale-up-1 ease-300">SIGN
+                            UP</button>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100pc md-w-25pc">
+                <div class="m-3 p-5 br-8 bg-white overflow-hidden">
+                    <div class="p-3">
+                        <h3 class="indigo">Pro</h3>
+                        <div class="black flex items-center">$<span class="fs-l5 lh-1">99</span>/mo</div>
+                    </div>
+                    <div class="p-3 black fw-400 fs-s1 lh-5">
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50"> 5 user</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">10,000 visitors/month</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">3 website</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">24x7 support</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">third party integration</span></div>
+                    </div>
+                    <div class="p-3">
+                        <button class="button full bg-indigo white hover-opacity-100 hover-scale-up-1 ease-300">SIGN
+                            UP</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer -->
+
+    <a class="fixed top-50pc right-0 p-3 bg-indigo white hover-scale-up-1 ease-300 no-underline" href="https://gum.co/tifJM" target="_blank" >
+        <i class="w-4" data-feather="download"></i>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
