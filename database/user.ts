@@ -12,8 +12,6 @@ interface Test {
 const db = new Database<Test>('user.json');
 
 
-
-
 export async function checkExistanceUser(user: User) {
   const usernameFound = await db.findOne({ username: user.username });
 
@@ -28,5 +26,11 @@ export async function checkExistanceUser(user: User) {
 }
 
 export async function insertUser(user: User) {
+  user.generateId()
   await db.insertOne(user)
+}
+
+export async function getUser(user: User) {
+  const userData = await db.findOne({ username: user.username });
+  return userData
 }
