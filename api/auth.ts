@@ -1,46 +1,50 @@
 import { hash, verify } from "https://deno.land/x/scrypt/mod.ts";
-
-class User {
-  username: string
-  email:string
-  password: string
-
-  constructor(username: string, email:string, password: string) {
-    this.username = username
-    this.email = email
-    this.password = password
-
-  }
-}
+import { checkExistanceUser, insertUser, getUser } from "../database/user.ts"
+import { User } from "../utils/class.ts"
 
 
 //the create user functions
 async function createUser(username: string, email:string, password: string){
 
-  //potentially vallidat information server side
+  //potentially vallidate information server side
 
   //Hash passwords
   const hashedPassword = await hash(password);
-
   let user = new User(username, email, hashedPassword)
 
-  console.log(user);
-
   //send to db
-  checkExistance(user)
-  //   db returns wheather the data exists or not. Minimize database calls
+  let existance = await checkExistanceUser(user)
+  if (existance.username){
+    return("Username invalid")
+  }
+  if (existance.email){
+    return("Email invalid")
+  }
 
-  // return complete
+  //insert into db
+  await insertUser(user)
 }
 
-function checkExistance(user: User) {
+async function loginUser(username: string, password: string){
 
-  console.log(user);
+  let user = new User(username, username, password)
+  let existance = await checkExistanceUser(user)
 
+  if (!existance.username){
+    return("Account doesnt exist")
+  }
+  //get user data
+  const userData = await getUser(user)
+
+  //check hashed passwords
+  const verifyResult = await verify(password, userData!.password);
+  console.log("ok?");
+
+  console.log(verifyResult);
 
 }
 
+await loginUser("dishi44t","erewrerw")
 
-
-
-await createUser("dishit","dishit#dew","rewrew")
+//let t = await createUser("dishi44t","rewrew1","erewrerw")
+//console.log(t);
