@@ -4,8 +4,9 @@ import { User } from "../utils/class.ts"
 // Structure of stored documents
 interface Test {
   username: string
-  email:string
+  email: string
   password: string
+  id: string
 }
 
 // Initialization

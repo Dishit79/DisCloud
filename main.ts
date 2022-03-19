@@ -2,6 +2,8 @@ import { opine, serveStatic, urlencoded, Router } from "https://deno.land/x/opin
 import { dirname, join } from "https://deno.land/x/opine/deps.ts";
 import { renderFile } from "https://deno.land/x/eta/mod.ts";
 import { api } from "./routes/security.ts";
+import { auth } from "./routes/functions/auth.ts";
+
 //import { RateLimit } from "./ratelimit.ts"
 
 
@@ -23,7 +25,7 @@ app.get("/signup", (req,res)=> {
   res.render("signup")
 })
 
-app.get("/main", (req,res)=> {
+app.get("/main", await auth, (req,res)=> {
   res.render("main")
 })
 

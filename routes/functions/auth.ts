@@ -1,7 +1,14 @@
 import { hash, verify } from "https://deno.land/x/scrypt/mod.ts";
-import { checkExistanceUser, insertUser, getUser } from "../database/user.ts"
-import { User } from "../utils/class.ts"
+import { checkExistanceUser, insertUser, getUser } from "../../database/user.ts"
+import { create, verify as verify1, getNumericDate} from "https://deno.land/x/djwt/mod.ts"
+import { User } from "../../utils/class.ts"
 
+
+const key = await crypto.subtle.generateKey(
+  { name: "HMAC", hash: "SHA-512" },
+  true,
+  ["sign", "verify"],
+);
 
 //the create user functions
 export async function createUser(username: string, email:string, password: string){
@@ -35,7 +42,7 @@ export async function loginUser(username: string, password: string){
   let existance = await checkExistanceUser(user)
 
   if (!existance.username){
-    return{succsess: false, error: "Account doesnt exist"} 
+    return{succsess: false, error: "Account doesnt exist"}
   }
   //get user data
   const userData = await getUser(user)
@@ -46,11 +53,27 @@ export async function loginUser(username: string, password: string){
   if (verifyResult !== true){
     return {succsess: false, error: "password incorrect"}
   }
-  return {succsess: true, error: null }
+  return {succsess: true, error: null, id: userData!.id }
 
 }
 
-await loginUser("dishi44t","erewrerw")
+export async function createToken(id: string){
+    const jwt = await create({ alg: "HS512", typ: "JWT" }, {   exp: getNumericDate(60 * 60) , id:id }, key)
+    return jwt
+}
 
-//let t = await createUser("dishi44t","rewrew1","erewrerw")
-//console.log(t);
+export async function auth(req:any, res:any, next:any){
+  const rawToken:string = req.get("cookie");
+  console.log(rawToken);
+
+  try{
+    const payload = await verify1(rawToken.substr(6) , key)
+    const token:any = payload.id
+    console.log(token);
+
+    next()
+
+  } catch (e) {
+    res.redirect("/login")
+  }
+}
