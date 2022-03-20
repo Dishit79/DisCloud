@@ -26,6 +26,9 @@ app.get("/signup", (req,res)=> {
 })
 
 app.get("/main", await auth, (req,res)=> {
+
+  console.log(res.locals.user);
+
   res.render("main")
 })
 

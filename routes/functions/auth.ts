@@ -53,24 +53,22 @@ export async function loginUser(username: string, password: string){
   if (verifyResult !== true){
     return {succsess: false, error: "password incorrect"}
   }
-  return {succsess: true, error: null, id: userData!.id }
-
+  return {succsess: true, error: null, user: userData }
 }
 
-export async function createToken(id: string){
-    const jwt = await create({ alg: "HS512", typ: "JWT" }, {   exp: getNumericDate(60 * 60) , id:id }, key)
+export async function createToken(username: string, id: string){
+    let user = {username: username, id: id}
+
+    const jwt = await create({ alg: "HS512", typ: "JWT" }, {   exp: getNumericDate(60 * 60) , user: user }, key)
     return jwt
 }
 
 export async function auth(req:any, res:any, next:any){
-  const rawToken:string = req.get("cookie");
-  console.log(rawToken);
+  const rawToken = req.get("cookie");
 
   try{
-    const payload = await verify1(rawToken.substr(6) , key)
-    const token:any = payload.id
-    console.log(token);
-
+    const payload = await verify1(rawToken.substr(6), key)
+    res.locals.user = payload
     next()
 
   } catch (e) {
