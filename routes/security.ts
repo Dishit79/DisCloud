@@ -15,8 +15,6 @@ api.post("/signup", async (req,res) => {
 })
 
 
-// TODO: add JWT auth
-
 api.post("/login", async (req,res) => {
   let on = await loginUser(req.body.username, req.body.password)
 
@@ -24,4 +22,10 @@ api.post("/login", async (req,res) => {
     let jwt = await createToken(on!.user!.username!, on!.user!.id!)
     res.cookie({name: "token",value: jwt}).redirect("../main")
   }
+})
+
+
+api.post("/upload", async (req,res) => {
+  res.send(req.file);
+
 })

@@ -58,7 +58,6 @@ export async function loginUser(username: string, password: string){
 
 export async function createToken(username: string, id: string){
     let user = {username: username, id: id}
-
     const jwt = await create({ alg: "HS512", typ: "JWT" }, {   exp: getNumericDate(60 * 60) , user: user }, key)
     return jwt
 }
