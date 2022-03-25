@@ -1,6 +1,9 @@
 import { Router } from "https://deno.land/x/opine/mod.ts";
 import { create } from "https://deno.land/x/djwt/mod.ts";
 import { createUser, loginUser, createToken } from "./functions/auth.ts";
+import { upload } from './functions/upload.ts'
+
+import { multiParser } from 'https://deno.land/x/multiparser/mod.ts'
 
 export const api = new Router
 
@@ -25,7 +28,8 @@ api.post("/login", async (req,res) => {
 })
 
 
-api.post("/upload", async (req,res) => {
-  res.send(req.file);
+api.post("/upload", await upload, async (req,res) => {
+  console.log('file', res.locals.file.filename)
+  res.send("ok");
 
 })
