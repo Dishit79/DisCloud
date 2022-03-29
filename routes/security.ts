@@ -29,7 +29,6 @@ api.post("/login", async (req,res) => {
 
 
 api.post("/upload", await upload, async (req,res) => {
-  console.log('file', res.locals.file.filename)
   res.send("ok");
 
 })

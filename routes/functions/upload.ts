@@ -35,9 +35,14 @@ export async function upload(req: any, res: any, next: any) {
   })
   let test = form.files(fieldName)[0]
 
-  console.log(test.filename)
+  console.log(test)
 
-  await Deno.writeFile("hello1.png", test.content);
+  if (test.content !== null){
+    console.log("real");
+    let name = test.filename
+    let extension = name.split('.').pop();
+    await Deno.writeFile(`hello1.${extension}`, test.content);
+  }
 
   res.locals.file = form.files(fieldName)[0]!
 
