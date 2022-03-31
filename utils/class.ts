@@ -16,3 +16,21 @@ export class User {
       this.id = v4.generate()
   }
 }
+
+export class Account {
+  id: string
+  username:string
+  accountLevel:number
+  directory:string
+  storageTotal:number
+  storageLeft: number
+
+  constructor(id: string, username: string, accountLevel: number, directory: string, storageTotal: number, storageLeft: number) {
+    this.id: = id
+    this.username: = username
+    this.accountLevel: = accountLevel
+    this.directory: = directory
+    this.storageTotal: = storageTotal
+    this.storageLeft: = storageLeft
+  }
+}
