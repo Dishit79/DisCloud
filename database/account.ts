@@ -26,6 +26,13 @@ class AccountInfo extends Model {
 db.link([AccountInfo])
 await db.sync()
 
-function insertAccount(account: Account) {
+export async function insertAccount(account: Account) {
   await AccountInfo.create(account);
+}
+await generateDir("2239f357-00ed-421f-a8a8-6def8feed81e")
+
+export async function generateDir(id:string) {
+  let dirLocation = `/home/nawaf/Documents/section1/${id}`
+  await Deno.mkdir(dirLocation, { recursive: true });
+  return dirLocation
 }

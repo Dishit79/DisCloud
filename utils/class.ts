@@ -26,11 +26,11 @@ export class Account {
   storageLeft: number
 
   constructor(id: string, username: string, accountLevel: number, directory: string, storageTotal: number, storageLeft: number) {
-    this.id: = id
-    this.username: = username
-    this.accountLevel: = accountLevel
-    this.directory: = directory
-    this.storageTotal: = storageTotal
-    this.storageLeft: = storageLeft
+    this.id = id
+    this.username = username
+    this.accountLevel = accountLevel
+    this.directory = directory
+    this.storageTotal = storageTotal
+    this.storageLeft = storageLeft
   }
 }

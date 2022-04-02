@@ -13,8 +13,6 @@ const key = await crypto.subtle.generateKey(
 //the create user functions
 export async function createUser(username: string, email:string, password: string){
 
-  //potentially vallidate information server side
-
   //Hash passwords
   const hashedPassword = await hash(password);
   let user = new User(username, email, hashedPassword)
