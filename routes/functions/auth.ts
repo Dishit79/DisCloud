@@ -1,7 +1,8 @@
 import { hash, verify } from "https://deno.land/x/scrypt/mod.ts";
 import { checkExistanceUser, insertUser, getUser } from "../../database/user.ts"
+import { generateDir, insertAccount } from "../../database/account.ts"
 import { create, verify as verify1, getNumericDate} from "https://deno.land/x/djwt/mod.ts"
-import { User } from "../../utils/class.ts"
+import { User, Account } from "../../utils/class.ts"
 
 
 const key = await crypto.subtle.generateKey(
@@ -19,7 +20,6 @@ export async function createUser(username: string, email:string, password: strin
 
   console.log("hit");
 
-
   //send to db
   let existance = await checkExistanceUser(user)
   if (existance.username){
@@ -31,6 +31,9 @@ export async function createUser(username: string, email:string, password: strin
 
   //insert into db
   await insertUser(user)
+  const dir = await generateDir(user.id)
+  let account = new Account(user.id, user.username, 1, dir, 5, 0)
+  await insertAccount(account)
   return {succsess: true, error: null}
 }
 

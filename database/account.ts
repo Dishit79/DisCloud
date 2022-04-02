@@ -27,7 +27,15 @@ db.link([AccountInfo])
 await db.sync()
 
 export async function insertAccount(account: Account) {
-  await AccountInfo.create(account);
+  let test = { id: account.id,
+  username: account.username,
+  accountLevel: account.accountLevel,
+  directory: account.directory,
+  storageTotal: account.storageTotal,
+  storageLeft: account.storageLeft,
+  }
+  
+  await AccountInfo.create(test);
 }
 await generateDir("2239f357-00ed-421f-a8a8-6def8feed81e")
 

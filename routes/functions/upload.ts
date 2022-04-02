@@ -4,7 +4,7 @@ import { MultipartReader } from "https://deno.land/std@0.102.0/mime/mod.ts";
 //import { default as crocks } from "https://cdn.skypack.dev/crocks@^0.12.4";
 
 const { compose, nth, split } = R
-const TMP_DIR = '/home/nawaf/Documents/GitHub/DisCloud/tmp'
+const TMP_DIR = '/home/nawaf/Documents/section1/f1b03d9c-b235-4e19-8bc4-fa595557cd3e'
 
 const getBoundary = compose(
   nth(1),
@@ -33,18 +33,18 @@ export async function upload(req: any, res: any, next: any) {
     maxMemory: 10 << 20,
     dir: TMP_DIR
   })
-  let test = form.files(fieldName)[0]
+  let test = form!.files!(fieldName)![0]!
 
   console.log(test)
 
-  if (test.content !== null){
+  if (("content" in test)==true){
     console.log("real");
     let name = test.filename
     let extension = name.split('.').pop();
-    await Deno.writeFile(`hello1.${extension}`, test.content);
+    await Deno.writeFile(`hello1.${extension}`, test.content!);
   }
 
-  res.locals.file = form.files(fieldName)[0]!
+  res.locals.file = test
 
   next()
 
