@@ -42,7 +42,7 @@ export async function upload(req: any, res: any, next: any) {
     console.log("real");
     let name = test.filename
     let extension = name.split('.').pop();
-    await Deno.writeFile(`hello1.${extension}`, test.content!);
+    await Deno.writeFile(`${dir}/hello1.${extension}`, test.content!);
   }
 
   res.locals.file = test

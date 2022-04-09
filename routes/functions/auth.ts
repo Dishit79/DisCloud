@@ -1,8 +1,7 @@
 import { hash, verify } from "https://deno.land/x/scrypt/mod.ts";
-import { checkExistanceUser, insertUser, getUser } from "../../database/user.ts"
-import { generateDir, insertAccount } from "../../database/account.ts"
+import { checkExistanceUser, insertUser, getUser, User } from "../../database/user.ts"
+import { generateDir, insertAccount, Account } from "../../database/account.ts"
 import { create, verify as verify1, getNumericDate} from "https://deno.land/x/djwt/mod.ts"
-import { User, Account } from "../../utils/class.ts"
 
 
 const key = await crypto.subtle.generateKey(

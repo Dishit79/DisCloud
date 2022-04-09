@@ -1,30 +1,22 @@
-import { Database, SQLite3Connector, Model, DataTypes, Relationships } from 'https://deno.land/x/denodb/mod.ts';
-import { Account } from "../utils/class.ts"
+import { AccountInfo } from "./database.ts";
 
+export class Account {
+  id: string
+  username:string
+  accountLevel:number
+  directory:string
+  storageTotal:number
+  storageLeft: number
 
-const connector = new SQLite3Connector({
-  filepath: './db.sqlite',
-});
-
-const db = new Database(connector);
-
-
-class AccountInfo extends Model {
-  static table = "account"
-  static timestamps = true;
-
-  static fields = { Id: {type: DataTypes.STRING, primaryKey: true},
-    username: {type: DataTypes.STRING, allowNull: false},
-    accountLevel: {type: DataTypes.INTEGER, allowNull: false},
-    directory: {type: DataTypes.STRING, allowNull: false},
-    storageTotal: {type: DataTypes.INTEGER, allowNull: false},
-    storageLeft: {type: DataTypes.INTEGER, allowNull: false}
+  constructor(id: string, username: string, accountLevel: number, directory: string, storageTotal: number, storageLeft: number) {
+    this.id = id
+    this.username = username
+    this.accountLevel = accountLevel
+    this.directory = directory
+    this.storageTotal = storageTotal
+    this.storageLeft = storageLeft
   }
 }
-
-//Relationships.belongsTo(PassInfo, UserInfo);
-db.link([AccountInfo])
-await db.sync()
 
 export async function insertAccount(account: Account) {
   let test = { id: account.id,
@@ -37,7 +29,6 @@ export async function insertAccount(account: Account) {
 
   await AccountInfo.create(test);
 }
-await generateDir("2239f357-00ed-421f-a8a8-6def8feed81e")
 
 export async function generateDir(id:string) {
   let dirLocation = `/home/nawaf/Documents/section1/${id}`
